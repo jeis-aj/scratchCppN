@@ -15,3 +15,4 @@ int main(int argc, char *argv[])
 	cout<<"gcd: "<<gcd(num1,num2)<<endl;
 	return 0;
 }
+
