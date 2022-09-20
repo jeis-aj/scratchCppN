@@ -62,7 +62,15 @@ int main(int argc, char *argv[])
 #define pb push_back
 	po.pb(pair{3,"arun"});
 	po.pb(pair{8,"jyothi"});
-	cout<<po.front().second<<endl;
+	pair <int,string> d = {19,"new pair"};
+	/*
+	pair <int,string> d = {19,"new pair"};
+
+	auto d = pair{19,"new"};
+	auto d = pair(19,"new");
+	*/
+	po.pb(d);
+	cout<<po.back().second<<endl;
 	
 	return 0;
 }

@@ -3,6 +3,7 @@
 #include <iterator>
 #include <vector>
 #include <map>
+#include <unordered_map>
 using namespace std; 
 /*
  * using macros && push_back vector
@@ -46,7 +47,7 @@ int ma(int argc, char *argv[])
 }
 
 
-int in(int argc, char *argv[])
+int xin(int argc, char *argv[])
 {
 	map<int,string> months;
 	months[1]="january";
@@ -107,7 +108,7 @@ cout<<" forward it, stop"<<endl;
 	return 0;
 }
 
-int main(int argc, char *argv[])
+int in(int argc, char *argv[])
 {
 	map<string,int>::iterator it;
 	
@@ -138,5 +139,34 @@ int main(int argc, char *argv[])
 	/* } */
 
 	
+	return 0;
+}
+
+/* template<typename T,typename S> */
+void print(unordered_map<string,string> s){
+
+	for(auto val: s){
+		cout<<"key: "<<val.first<<" -- "<<"value: "<<val.second<<endl;
+	}
+}
+int main(int argc, char *argv[])
+{
+	unordered_map<string,string> month{
+		{"jan","january"},
+		{"feb","february"},
+		{"mar","march"},
+		{"apr","april"},
+		{"may","may"},
+			{"jun","june"},
+		{"jul","july"},
+		{"aug","august"},
+		{"sep","september"},
+		{"oct","october"},
+		{"nov","november"},
+		{"dec","december"},
+	};
+
+	print(month);
+	cout<<month["apr"]<<endl;
 	return 0;
 }

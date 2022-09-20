@@ -49,9 +49,17 @@ int BinarySearch(int element,int* arr,int a,int b){
 }
 
 int main(){
-	int ar[] = {  2, 4,8 ,8, 2 };
-	for (auto x: ar){
-		in(x);
+	int arr[] = {  2, 4,8 ,8, 2 };
+	/* for (auto x: ar){ in(x); } */
+	int temp =0;
+	int x;
+	cout<<"enter a num: "<<endl;
+	cin>>x;
+	for (int sz = *(&arr+1)-arr,up=sz/2 ; up>=1; up /=2 ){
+	while (arr[up+temp] < sz && arr[up+temp]<= x) x+=up;
+	}
+	if( arr[temp] == x ){
+		cout<< x <<" found at index: "<< temp <<endl;
 	}
 	return 0;
 }
