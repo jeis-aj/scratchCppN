@@ -1,0 +1,38 @@
+#include <iostream>
+#include <vector>
+
+using namespace std; 
+
+void prompt(auto&);
+int main(int argc, char *argv[])
+{
+	vector<int> ans;
+	while(1)	{
+		prompt(ans);
+		cout<<"[.............................]"<<endl;
+		cout<<endl<<"Do you want to continue? y|n";
+		char c;
+		cin>> c;
+		if(c == 'n'){ break; }
+	}
+	return 0;
+}
+
+uint64_t fact(int,auto&);
+void prompt( auto& result ){
+	int num;
+	cout<< "enter number: "<<endl;
+	cin>>num;
+	uint64_t val = fact(num,result);
+	cout<< " factorial at "<<num<<" is "<<val<<endl;
+}
+
+uint64_t fact(int num,auto& result){
+	if ( num <  result.size()){
+		return result[num];
+	}
+	if (num ==1){ return 1; }
+	uint64_t Cfact = num* fact(num-1);
+	result.push_back(Cfact);
+	return Cfact;
+}
