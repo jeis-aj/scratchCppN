@@ -6,17 +6,17 @@ using namespace std;
 #define MAX_WIDTH 2
 #define MAX_LENGTH 5
 
-int comp(int ar[MAX_WIDTH], int ar2[MAX_WIDTH]){
+bool comp(int ar[MAX_WIDTH], int ar2[MAX_WIDTH]){
 	return ar[1]<ar2[1];
 }
 void print(int arr[MAX_LENGTH][MAX_WIDTH]){
 	cout<<"{  ";
 	for (int i = 0; i < MAX_LENGTH ; ++i) {
+		cout<<"{ ";
 		for (int j = 0; j < MAX_WIDTH ; ++j) {
-			cout<<"{ ";
-		cout<<arr[i][j]<<" , "<<arr[i][j];	
-			cout<<" }";}
-	
+		cout<<arr[i][j];
+		if (j+1 != MAX_WIDTH) cout<<" , ";	}
+			cout<<" }";
 	}
 	cout<<"  }";
 }
@@ -46,6 +46,6 @@ int main(int argc, char *argv[])
 }
 
 void SimpleSort(int arr[MAX_LENGTH][MAX_WIDTH]){
-	
+		
 }
 
