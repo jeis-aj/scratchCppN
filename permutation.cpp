@@ -26,11 +26,11 @@ void print(auto arg){
 
 void perm( string s , auto& result){
 
-	cout<<s<<endl;
+	/* cout<<s<<endl; */
 	static string line="";
 	static int count=0;
 	count++;
-	if (  1==s.length() ){ result.push_back(  line+s[0] ); line =""; return; }
+	if (  1==s.length() ){ result.push_back(  line+s[0] ); line.pop_back();return; }
 	for(auto& c: s){ 
 		swap(c,s[0]);
 		line+=s[0];
@@ -42,14 +42,13 @@ void perm( string s , auto& result){
 			perm(nxtStr,result); 
 		}
 		catch(...){
-			cout<<"bad alloc err: ";
+			/* cout<<"bad alloc err: "; */
 			/* cout.width(10); */
-			cout<< " str len: " <<s.length() <<" ,str: "<<s<<" rec_count: "<<count<<",nxt str: "<<nxtStr<<endl;
-			cout<<"nxt str len: "<<nxtStrLen<<endl;
-			print(result);
+			/* cout<< " str len: " <<s.length() <<" ,str: "<<s<<" rec_count: "<<count<<",nxt str: "<<nxtStr<<endl; */
+			/* cout<<"nxt str len: "<<nxtStrLen<<endl; */
+			/* print(result); */
 		}
-
-		line.pop_back();
 	}
+	line.pop_back();
 }
 
