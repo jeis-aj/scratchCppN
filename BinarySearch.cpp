@@ -20,9 +20,9 @@ int in(int Element)
 }
 
 void fn(int &arr,int sz){
-cout<<arr<<endl;	
+	cout<<arr<<endl;	
 
-for (int i = 0; i < sz; i++) {
+	for (int i = 0; i < sz; i++) {
 	int val = *(&arr+i);	
 	cout<<val<<endl;
 }
@@ -32,7 +32,6 @@ for (int i = 0; i < sz; i++) {
 }
 
 int BinarySearch(int element,int* arr,int a,int b){
-
 	int mid  = a+b;
 	mid/=2;
 	int midElement = arr[mid];
@@ -48,7 +47,7 @@ int BinarySearch(int element,int* arr,int a,int b){
 		return -1;
 }
 
-int main(){
+int mainFn(){
 	int arr[] = {  2, 4,8 ,8, 2 };
 	/* for (auto x: ar){ in(x); } */
 	int temp =0;
@@ -61,5 +60,49 @@ int main(){
 	if( arr[temp] == x ){
 		cout<< x <<" found at index: "<< temp <<endl;
 	}
+	return 0;
+}
+
+void print( int *startAddr, int size ){
+	
+	for (int index = 0; index < size ; index ++){
+		int currentValue = startAddr[index];
+		cout<< currentValue <<" ";
+	}
+	cout<<endl;
+}
+
+int main(int argc, char *argv[])
+{
+	int arr []	= { 1,2,3,4,5,6,7,8,9,10,11,12,13,14 };
+	int jumpIndex = 0;
+	int sizeOfArr = *(&arr+1)-arr;
+		
+	cout<<"size of arr: "<<sizeOfArr<<endl;
+	print(arr , sizeOfArr);
+	cout<<"Enter Search Value: "<<endl;
+	int givenValue;
+	cin>>givenValue;
+
+	/*
+	 * Complex O(log(n)) Binary Search
+	 * half-ing jump width
+	 */
+
+	for (int jumpWidth = sizeOfArr/2; jumpWidth >= 1 ; jumpWidth/=2 ){
+		
+		cout<<".";
+			
+		while (jumpIndex+jumpWidth < sizeOfArr && arr[jumpIndex + jumpWidth] <= givenValue){
+			jumpIndex += jumpWidth; }
+	}
+	int valueFound = arr[jumpIndex]	;
+	if (valueFound == givenValue ){
+		cout<< "value found  at index: "<< jumpIndex <<endl;
+	}
+	else{
+	 cout<< " value not found "<<endl;
+	}
+
 	return 0;
 }
