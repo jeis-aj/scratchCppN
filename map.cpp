@@ -166,7 +166,15 @@ int main(int argc, char *argv[])
 		{"dec","december"},
 	};
 
-	print(month);
-	cout<<month["apr"]<<endl;
+	/* print(month); */
+
+	map<int*,int> ptrMap;
+	int b = 8;
+	int *a = &b;
+	int *ptr = a;
+	ptrMap[a] = 99;
+	cout<<ptrMap[ptr]<<endl;
+
+	/* cout<<month["apr"]<<endl; */
 	return 0;
 }
