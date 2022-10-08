@@ -1,25 +1,56 @@
 #include <iostream>
 using namespace std; 	
 
-template<typename T>
-class List{
-	private:
-		T data;
-		List* Head;
-		List* last;
-		List* next;
+template<class T>
+class myList{
+	
+	private: 
+		struct List{
+			T data;
+			struct List* prev;
+			struct List* next;
+		};
+		struct List *last;
+		struct List *Head;
 	public:
-		List(){
-			Head = new List;
+		myList(T data = 0 ){
+			Head  = new List{data}; 
+			last = Head;
 		}
-		
-		List(T data){
-			this->data = data;
-		}
-		void push_back(T data){
-			last = new List;
-			last->head = data;
-			this->next = last;
-			this->next = last->next;
-		}
+		void print();
+		void push_back(T);
+		template<class S>
+		friend void showList(myList<S>);
+};
+
+template<class T>
+void myList<T>::print(){
+	struct List* it = Head;
+	while(it){
+		cout<< it->data <<" ";
+		it = it->next;
+	}
+}
+
+/* Created a linked list, with template push_back  fn
+ *
+ */
+
+template<class T>
+void myList<T>::push_back(T data){
+	last->next = new List{data};
+	last = last->next;
+}
+
+int main(int argc, char *argv[])
+{
+	myList<int> li(4);
+
+	int i = 0,sz = 10;
+	while(i< sz){
+		li.push_back(i*2);
+		++i; }
+
+	li.print();
+	return 0;
 }
