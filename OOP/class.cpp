@@ -6,16 +6,9 @@ class Polygon{
     protected:
         int width,height;
     public:
-      
-		/*
-        Polygon(int a,int b){
-            width = a, height =b;
-        }    
-		*/
 		Polygon(  int,int );
         virtual int area(){
-            return width*height;
-        }    
+            return width*height; }    
 		int heightFn(void);
 };
 
@@ -37,6 +30,7 @@ class Rectangle:public Polygon{
 		return width-height;
 	}
 };
+
  int main(int argc, char *argv[])
 {
 	
@@ -44,11 +38,9 @@ class Rectangle:public Polygon{
 	Rectangle rect(8,3);
 	ply = &rect;
 
-	/* cout<< rect.area()<<endl; */
-	/* cout<< rect.heightFn()<<endl; */
-
 	cout<< ply->area()<<endl;
 	cout<< ply->heightFn()<<endl;
 	return 0;
-}
+//
+//}
 
