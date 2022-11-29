@@ -5,18 +5,25 @@
 using namespace std; 
 
 
-int main(int argc, char *argv[])
+vector <int> solve(int sz,int q, vector <int > vect ,vector<vector<int>> query)
 {
-	vector <int> vect;
-	int sz;
-	cin >> sz;
+	vector <int> result;
+	/* int sz; */
+	/* cin >> sz; */
 	for ( int i =0; i < sz ;++i ){
 		int temp;
 		cin >> temp;
 		vect.push_back(temp);
 	}
+
+	for ( int j = 0 ; j < q ; ++j ){
+
+	
 	int lower,upper;
-	cin >> lower >> upper;
+	/* cin >> lower >> upper; */
+	lower  = query[j][0];
+	upper = query[j][1];
+
 	auto it = vect.begin();
 	vector <char> temp(it+lower, it+upper);
 	map <int,int> mp;
@@ -43,5 +50,11 @@ int main(int argc, char *argv[])
 			ans++;
 		}
 	}
-	return ans;
+	result.push_back(ans);
+	}
+	return result;
+}
+
+int main(){
+	return 0;
 }
